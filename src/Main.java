@@ -130,11 +130,12 @@ class Main {
 
                             Integer playerID = player.getKey();
 
-                            //call the move method passing the playerID, the roll method result, the map in order to update the player position
-                            //and the players list to switch players position if needed
+                            //call the move method passing the playerID, the roll method result, the map in order
+                            //to update the player position and the players list to switch players position if needed
                             move(playerID,roll(),map,players);
 
-                            //if the position 63 of the map array is different from '-1' that means that someone has win and the loop will stop
+                            //if the position 63 of the map array is different from '-1' that
+                            // means that someone has win and the loop will stop
                             if (map[63] != -1){
 
                                 winner = players.get(map[63]);
@@ -155,7 +156,8 @@ class Main {
                         String playerName = sc.next();
                         boolean valid = false;
 
-                        //check if the inserted name is a valid name, in case it is true it will roll the dice and move the player
+                        //check if the inserted name is a valid name
+                        //in case it is true it will roll the dice and move the player
                         for (Map.Entry<Integer, String> player : players.entrySet()){
 
                             Integer id = player.getKey();
@@ -175,7 +177,8 @@ class Main {
                             }
                         }
 
-                        // if the name is not valid the 'valid' variable will not change and the game will print an error skipping this iteration
+                        // if the name is not valid the 'valid' variable will not change
+                        // and the game will print an error skipping this iteration
                         if (!valid){
 
                             System.out.println(playerName + " is not a valid name");
@@ -185,7 +188,8 @@ class Main {
 
                  break;
 
-                // if the players select 3 they will play the game on their own, calling the move command with the name of the player and the dices rolls
+                // if the players select 3 they will play the game on their own
+                // calling the move command with the name of the player and the dices rolls
                 case 3:
 
                     while(winner == null) {
@@ -197,11 +201,13 @@ class Main {
 
                         String input = sc2.nextLine();
 
-                        // once the command is inserted it is trimmed, have any wrong character replaced with a blank space and splitted in separated words
+                        // once the command is inserted it is trimmed
+                        // have any wrong character replaced with a blank space and splitted in separated words
                         String[] command = input.trim().replaceAll("[^a-zA-Z0-9]"," ").split("\\s+");
 
-                        // once the command is prepared for the check the game will call the 'commandCheck' method, if the command is not valid it will throw a specific error asking
-                        // to try again and skipping the iteration
+                        // once the command is prepared for the check the game will call the 'commandCheck' method
+                        // if the command is not valid it will throw a specific error
+                        // asking to try again and skipping the iteration
                         if(!commandCheck(command,players)){
 
                             continue;
@@ -210,7 +216,8 @@ class Main {
                         // if the command is valid the dices array will select the 2 number from the command
                         int[] dices = {Integer.parseInt(command[2]), Integer.parseInt(command[3])};
 
-                        // the game will now search for the ID of the player and once found it will call the 'move' method
+                        // the game will now search for the ID of the player
+                        // once found it will call the 'move' method
                         for (Map.Entry<Integer, String> player : players.entrySet()){
 
                             Integer id = player.getKey();
