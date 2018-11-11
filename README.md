@@ -1,6 +1,4 @@
 
-#The Goose Game
-
 # Compiling
 
 -To compile the game download the zip and extract the folder ```Goosegame``` on the desktop
