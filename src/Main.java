@@ -96,7 +96,7 @@ class Main {
                     }
 
 
-                }else if (c == 'n'){
+                }else{
 
                     stop = true;
 
@@ -116,7 +116,7 @@ class Main {
             System.out.println("2. Auto roll");
             System.out.println("3. Manual roll");
 
-            int selector = sc.nextInt();;
+            int selector = sc.nextInt();
 
             switch (selector){
 
@@ -182,7 +182,6 @@ class Main {
                         if (!valid){
 
                             System.out.println(playerName + " is not a valid name");
-                            continue;
                         }
                     }
 
@@ -280,7 +279,7 @@ class Main {
             }
         }
 
-        // the new position is equals to the previus position plus the sum of the dice rolls
+        // the new position is equals to the previous position plus the sum of the dice rolls
         newPosition = playerPosition + diceSum;
 
         // if the new position is greater than 63 the player will be send back of the remaining jump
@@ -291,7 +290,8 @@ class Main {
             System.out.println( players.get(playerID) + " moved further then space 63! Bounce back to " + newPosition);
         }
 
-        // if the new position on the map is not set to '-1' that means that there is already a player in that position an the 2 player will switch position
+        // if the new position on the map is not set to '-1' that means that there is already a player in that position
+        // and the 2 player will switch position
         if (mapArray[newPosition] != -1){
 
             mapArray[playerPosition] = mapArray[newPosition];
@@ -301,7 +301,8 @@ class Main {
 
         }else {
 
-        // else the position is free an the player can move in, now the game will check if the new position is an 'event' space calling the method 'spaceCheck'
+            // else the position is free an the player can move in, now the game will check if the new position
+            // is an 'event' space calling the method 'spaceCheck'
             mapArray[newPosition] = playerID;
             playerPosition = newPosition;
 
@@ -313,7 +314,8 @@ class Main {
 
     private static void spaceCheck(int[] mapArray, LinkedHashMap players, int playerID, int playerPosition, int dices){
 
-        // if the position of the player is the 6th space it will trigger the bridge, sending the player to the 12th space and eventually switching his place with the player in that position
+        // if the position of the player is the 6th space it will trigger the bridge
+        // sending the player to the 12th space and eventually switching his place with the player in that position
         if (playerPosition == 6){
 
             if (mapArray[12] != -1){
@@ -331,7 +333,8 @@ class Main {
             }
         }
 
-        // while the player is on the 5th,7th,14th,18th,23th or 27th position it will keep moving forward of the same rolled space eventually switching position with other player
+        // while the player is on the 5th,7th,14th,18th,23th or 27th position it will keep moving forward
+        // of the same rolled space eventually switching position with other player
         while (playerPosition == 5 || playerPosition == 7 || playerPosition == 14 || playerPosition == 18 || playerPosition == 23 || playerPosition == 27){
 
             System.out.println( players.get(playerID) + " landed on the goose (" + playerPosition + ")." + players.get(playerID) + " move again.");
