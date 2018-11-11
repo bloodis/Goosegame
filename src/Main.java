@@ -10,7 +10,7 @@ class Main {
         LinkedHashMap<Integer,String> players = new LinkedHashMap<>();
         String winner = null;
 
-        //preloading the hashmap in order to start the duplicate check for
+        //preloading the hashmap in order to start the duplicate check 'for'
         players.put(null,null);
 
         //filling map array with -1, each -1 means no player in that position
@@ -100,7 +100,7 @@ class Main {
 
                     stop = true;
 
-                    //remove the preloading entry to avoid nullPointerException
+                    //remove the preloading entry to avoid nullPointerExceptions
                     players.remove(null);
                 }
             }
@@ -125,7 +125,7 @@ class Main {
 
                     while(winner == null) {
 
-                        //this for make a move for each player one at time
+                        //this 'for' make a move for each player one at time
                         for (Map.Entry<Integer, String> player : players.entrySet()) {
 
                             Integer playerID = player.getKey();
@@ -178,7 +178,7 @@ class Main {
                         }
 
                         // if the name is not valid the 'valid' variable will not change
-                        // and the game will print an error skipping this iteration
+                        // and the game will print an error
                         if (!valid){
 
                             System.out.println(playerName + " is not a valid name");
@@ -201,12 +201,11 @@ class Main {
                         String input = sc2.nextLine();
 
                         // once the command is inserted it is trimmed
-                        // have any wrong character replaced with a blank space and splitted in separated words
+                        // have any wrong character replaced with a blank space and will be splitted in separated words
                         String[] command = input.trim().replaceAll("[^a-zA-Z0-9]"," ").split("\\s+");
 
                         // once the command is prepared for the check the game will call the 'commandCheck' method
                         // if the command is not valid it will throw a specific error
-                        // asking to try again and skipping the iteration
                         if(!commandCheck(command,players)){
 
                             continue;
@@ -240,7 +239,7 @@ class Main {
             }
         }
 
-        // once the variable 'winner is changed it will printed before the game end
+        // once the variable 'winner' is changed the game will print it before the game end
         System.out.println("The winner is:" + winner);
 
     }
@@ -282,7 +281,7 @@ class Main {
         // the new position is equals to the previous position plus the sum of the dice rolls
         newPosition = playerPosition + diceSum;
 
-        // if the new position is greater than 63 the player will be send back of the remaining jump
+        // if the new position is greater than 63 the player will be sent back of the remaining jump
         if (newPosition > 63){
 
             newPosition = 63 - (newPosition - 63);
@@ -301,7 +300,7 @@ class Main {
 
         }else {
 
-            // else the position is free an the player can move in, now the game will check if the new position
+            // else the position is free and the player can move in, now the game will check if the new position
             // is an 'event' space calling the method 'spaceCheck'
             mapArray[newPosition] = playerID;
             playerPosition = newPosition;
@@ -334,7 +333,7 @@ class Main {
         }
 
         // while the player is on the 5th,7th,14th,18th,23th or 27th position it will keep moving forward
-        // of the same rolled space eventually switching position with other player
+        // of the same rolled space and eventually switching position with other player
         while (playerPosition == 5 || playerPosition == 7 || playerPosition == 14 || playerPosition == 18 || playerPosition == 23 || playerPosition == 27){
 
             System.out.println( players.get(playerID) + " landed on the goose (" + playerPosition + ")." + players.get(playerID) + " move again.");
@@ -380,7 +379,7 @@ class Main {
             return false;
         }
 
-        // if the first word is not 'move' the command is not valid
+        // if the first string is not 'move' the command is not valid
         if (!command[0].equals("move")){
 
             System.out.println(command[0] + " is not a valid command");
@@ -388,7 +387,7 @@ class Main {
             return false;
         }
 
-        // if the second word is not a player name, the command is not valid
+        // if the second string is not a player name, the command is not valid
         boolean name = false;
 
         for (Map.Entry<Integer, String> player : players.entrySet()){
@@ -421,7 +420,7 @@ class Main {
             return false;
         }
 
-        // if note of the if is triggered the command is valid
+        // if none of the if is triggered the command is valid
         return true;
     }
 }
