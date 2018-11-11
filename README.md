@@ -1,5 +1,5 @@
 
-##The Goose Game
+#The Goose Game
 
 # Compiling
 
