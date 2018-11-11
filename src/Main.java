@@ -28,7 +28,7 @@ class Main {
 
                 boolean duplicatedEntry = false;
 
-                System.out.println("There isn't enough player, add a player. ");
+                System.out.println("There aren't enough players, add a player. ");
                 System.out.print("Player name: ");
 
                 playerName = sc.next();
@@ -62,7 +62,7 @@ class Main {
 
                 boolean duplicatedEntry = false;
 
-                System.out.print("There is enough player, add another player? y/n :");
+                System.out.print("There are enough players, add another player? y/n :");
 
                 char c = sc.next().charAt(0);
                 if (c != 'y' && c != 'n'){
@@ -151,7 +151,7 @@ class Main {
                     while(winner == null) {
 
                         // ask for the name of the player that have to roll
-                        System.out.println("Who move?");
+                        System.out.println("Whose move?");
 
                         String playerName = sc.next();
                         boolean valid = false;
